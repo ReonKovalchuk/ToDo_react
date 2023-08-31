@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,85 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+.container {
+  max-width: 700px
+}
+
+.counter {
+  display: block;
+  color: #4a4a4a;
+}
+
+.app-container {
+  padding: 12px;
+  border: 1px solid #4a4a4a;
+  border-radius: 10px;
+}
+
+.list-group-item {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+
+}
+
+.list-item:hover {
+  background-color: #eee;
+}
+
+.handle:hover {
+  cursor: grab;
+}
+
+.form-check-label {
+  flex-grow: 1;
+}
+
+.form-check-input {
+  font-size: 14px;
+}
+
+.done {
+  color: var(--bs-gray);
+}
+
+.icon-btn {
+  padding: 0 1em;
+  border: none;
+  /*   border-left:1px solid #6c757d; */
+  background-color: transparent;
+  color: #6c757d;
+  transition: color 0.1s ease-out;
+}
+
+.delete-btn:hover {
+  color: var(--bs-red);
+}
+
+.like-btn:hover {
+  color: var(--bs-green)
+}
+
+.dislike-btn:hover {
+  color: var(--bs-orange)
+}
+
+.bi {
+  font-size: 20px;
+}
+
+.bi-list {
+  color: #ddd;
+}
+
+.form-check-input:checked {
+  background-color: var(--bs-gray);
+  border-color: var(--bs-gray);
+}
+
+.form-check-input:focus {
+  border-color: var(--bs-gray-600);
+  box-shadow: 0 0 0 .15rem rgba(108, 117, 125, 0.25)
 }
