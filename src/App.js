@@ -12,29 +12,26 @@ function App() {
     setNewTask((prev) => ({ ...prev, id: Date.now(), [name]: value, done: false }));
   };
 
-  const [allTasks, setAllTasks] = useState(tasks);
-  const [finishedTasks, setFinishedTasks] = useState(allTasks.filter((task) => task.done));
-  const [unfinishedTasks, setUnfinishedTasks] = useState(allTasks.filter((task) => !task.done));
+  const [allTasks, setAllTasks] = useState(tasks || []);
+  const finishedTasks = allTasks.filter((task) => task.done);
+  const unfinishedTasks = allTasks.filter((task) => !task.done);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!newTask.name) return;
     setAllTasks((prev) => [newTask, ...prev]);
     setNewTask({});
-    setFinishedTasks(allTasks.filter((task) => task.done));
-    setUnfinishedTasks(allTasks.filter((task) => !task.done));
+
   };
   const handleCheckboxChange = (id) => {
     const index = allTasks.findIndex((task) => task.id === id);
     allTasks[index].done = !allTasks[index].done;
-    setAllTasks(allTasks); //как сделать с коллбэком
-    setFinishedTasks(allTasks.filter((task) => task.done));
-    setUnfinishedTasks(allTasks.filter((task) => !task.done));
+    setAllTasks(() => [...allTasks]);
+
   };
   const handleDelete = (taskIdToRemove) => {
     setAllTasks((prev) => prev.filter((task) => task.id !== taskIdToRemove));
-    setFinishedTasks((prev) => prev.filter((task) => task.id !== taskIdToRemove));
-    setUnfinishedTasks((prev) => prev.filter((task) => task.id !== taskIdToRemove));
+
   };
   return (
     <div className="app-container" id="app">
